@@ -1,5 +1,6 @@
 var res = JSON.parse($response.body);
-if(res.err_code == 0){
+console.log(res)
+if(res.ret == 0){
     console.log("开始重写一言...")
     res.content.watermark = "";
     $done({body: JSON.stringify(res)});
