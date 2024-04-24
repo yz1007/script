@@ -19,7 +19,7 @@ if(res.code == 0){
         "Box": 0,
         "OpenBox": 0,
         "Energy": 3,
-        "OnlineBaseTicket": 99,//在线基本票
+        "OnlineBaseTicket": 2,//在线基本票
         "ToolMessUp": 99
     };
     playerSelfArchive.userRecord = {
