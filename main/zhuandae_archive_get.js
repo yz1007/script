@@ -1,8 +1,9 @@
+//https://raw.githubusercontent.com/yz1007/script/main/main/zhuandae_archive_get.js
 var res = JSON.parse($response.body);
 console.log(res)
 if(res.code == 0){
     console.log("开始重写大鹅...")
-    var data = JSON.parse(res.data);
+    let data = JSON.parse(res.data.archives[0]);
     console.log("开始重写大鹅...",data)
     res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
     res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
