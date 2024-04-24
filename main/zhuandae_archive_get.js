@@ -1,20 +1,42 @@
 //https://raw.githubusercontent.com/yz1007/script/main/main/zhuandae_archive_get.js
 var res = JSON.parse($response.body);
-console.log(res)
 if(res.code == 0){
     console.log("开始重写大鹅...")
-    // res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
-    // res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
-    res.data.archives[0].data.playerSelfArchive.todayLevelTryCount = 1;//今天级别尝试计数
-    res.data.archives[0].data.playerSelfArchive.todayEnergyCount = 1;//今天能量计数
 
-    var resourceList = JSON.parse(res.data.archives[0].data.playerSelfArchive.resourceList);
-    resourceList.OnlineBaseTicket = 2;//在线基本票
-    console.log('resourceList.OnlineBaseTicket',resourceList)
+    console.log("res.data.archives[0].data.playerSelfArchive")
+    console.log(res.data.archives[0].data.playerSelfArchive)
 
-    var userRecord = JSON.parse(res.data.archives[0].data.playerSelfArchive.userRecord);
-    userRecord.playLvCount = 1;//级别计数
-    console.log('userRecord.playLvCount',userRecord.playLvCount)
+    let playerSelfArchive = JSON.parse(res.data.archives[0].data.playerSelfArchive);
+    playerSelfArchive.todayLevelTryCount = 1;//今天级别尝试计数
+    playerSelfArchive.todayEnergyCount = 1;//今天能量计数
+    playerSelfArchive.resourceList = {
+        "ToolReturnBack": 99,
+        "ToolAutoFind": 99,
+        "ToolCleanBoxObject": 99,
+        "ToolShake": 99,
+        "Gold": 0,
+        "BoxKey": 0,
+        "Box": 0,
+        "OpenBox": 0,
+        "Energy": 3,
+        "OnlineBaseTicket": 99,//在线基本票
+        "ToolMessUp": 99
+    };
+    playerSelfArchive.userRecord = {
+        "playLvCount": 2,//级别计数
+        "winLvCount": 0,
+        "getGoldCount": 0,
+        "getBoxCount": 0,
+        "ADCount": 0,
+        "shareCount": 1,
+        "playSBattleCount": 0,
+        "winOnlineBaseCount": 0,
+        "winNewYearLevelCount": 0
+    };
+    res.data.archives[0].data.playerSelfArchive = JSON.stringify(playerSelfArchive);
+
+    console.log("===res.data.archives[0].data.playerSelfArchive")
+    console.log(res.data.archives[0].data.playerSelfArchive)
 
     $done({body: JSON.stringify(res)});
     console.log("重写大鹅结束")
