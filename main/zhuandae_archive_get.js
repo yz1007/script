@@ -11,7 +11,7 @@ if(res.code == 0){
     $done({body: JSON.stringify(res)});
     console.log("重写大鹅结束")
 } else {
-    console.log("重写一言大鹅...")
+    console.log("重写大鹅失败...")
     $done({body: JSON.stringify(res)});
 }
 
