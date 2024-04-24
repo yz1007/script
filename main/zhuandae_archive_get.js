@@ -3,11 +3,19 @@ var res = JSON.parse($response.body);
 console.log(res)
 if(res.code == 0){
     console.log("开始重写大鹅...")
-    console.log("开始重写大鹅...",res.data)
-    res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
-    res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
+    // res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
+    // res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
     res.data.archives[0].data.playerSelfArchive.todayLevelTryCount = 1;//今天级别尝试计数
     res.data.archives[0].data.playerSelfArchive.todayEnergyCount = 1;//今天能量计数
+
+    var resourceList = JSON.parse(res.data.archives[0].data.playerSelfArchive.resourceList);
+    resourceList.OnlineBaseTicket = 2;//在线基本票
+    console.log('resourceList.OnlineBaseTicket',resourceList)
+
+    var userRecord = JSON.parse(res.data.archives[0].data.playerSelfArchive.userRecord);
+    userRecord.playLvCount = 1;//级别计数
+    console.log('userRecord.playLvCount',userRecord.playLvCount)
+
     $done({body: JSON.stringify(res)});
     console.log("重写大鹅结束")
 } else {
