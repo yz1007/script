@@ -2,6 +2,8 @@ var res = JSON.parse($response.body);
 console.log(res)
 if(res.code == 0){
     console.log("开始重写大鹅...")
+    var data = JSON.parse(res.data);
+    console.log("开始重写大鹅...",data)
     res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
     res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
     res.data.archives[0].data.playerSelfArchive.todayLevelTryCount = 1;//今天级别尝试计数
