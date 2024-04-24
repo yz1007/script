@@ -2,9 +2,12 @@ var res = JSON.parse($response.body);
 console.log(res)
 if(res.code == 0){
     console.log("开始重写大鹅...")
-    res.data.archives[0].data.playerSelfArchive.todayLevelTryCount = 1;
-    res.data.archives[0].data.playerSelfArchive.todayEnergyCount = 1;
+    res.data.archives[0].data.playerSelfArchive.resourceList.OnlineBaseTicket = 2;//在线基本票
+    res.data.archives[0].data.playerSelfArchive.userRecord.playLvCount = 1;//级别计数
+    res.data.archives[0].data.playerSelfArchive.todayLevelTryCount = 1;//今天级别尝试计数
+    res.data.archives[0].data.playerSelfArchive.todayEnergyCount = 1;//今天能量计数
     $done({body: JSON.stringify(res)});
+    console.log("重写大鹅结束")
 } else {
     console.log("重写一言大鹅...")
     $done({body: JSON.stringify(res)});
@@ -19,7 +22,19 @@ var dd = {
             {
                 "tb_name" : "archive",
                 "data" : {
-                    "playerPublicArchive" : "{\"userId\":\"67314041\",\"nickName\":\"\\u9ED8\\u8BA4\\u6635\\u79F067314041\",\"localCountry\":\"\",\"localProvince\":\"\",\"localCity\":\"\",\"gooseType\":0,\"avatarUrl\":\"\",\"hasGetWXInfo1\":false,\"hasGetPos\":false,\"teamOrder\":-1,\"timeStamp\":0}",
+                    "playerPublicArchive" : "{" +
+                        "\"userId\":\"67314041\"," +
+                        "\"nickName\":\"\\u9ED8\\u8BA4\\u6635\\u79F067314041\"," +
+                        "\"localCountry\":\"\"," +
+                        "\"localProvince\":\"\"," +
+                        "\"localCity\":\"\"," +
+                        "\"gooseType\":0," +
+                        "\"avatarUrl\":\"\"," +
+                        "\"hasGetWXInfo1\":false," +
+                        "\"hasGetPos\":false," +
+                        "\"teamOrder\":-1," +
+                        "\"timeStamp\":0" +
+                        "}",
                     "playerSelfArchive" : "" +
                         "{" +
                             "\"gooseSave\":[1]," +
