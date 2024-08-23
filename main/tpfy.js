@@ -6,44 +6,22 @@ if(res.code == 0){
     console.log("res.data.userData.bp")
     console.log(res.data.userData.bp)
 
-    let data = JSON.parse(res.data);
-
-    data.userData.bp={
-        "longrange":10,
-        "ice":10,
-        "meow":10,
-        "troll":10,
-        "doorLevUp":1,
-        "repair":10,
-        "energyhood":10,
-        "guillotine":10,
-        "smoney":10,
-        "spell":10,
-        "particlea":10,
-        "solenoid":10,
-        "splitter":10,
-        "barb":10,
-        "entrapment":10,
-        "dice":10,
-    }
-    res.data = JSON.stringify(data);
-
-    // res.data.userData.bp['longrange']=10;//瞭望台
-    // res.data.userData.bp['ice']=10;//冰箱
-    // res.data.userData.bp['meow']=10;//喵喵魔盒
-    // res.data.userData.bp['troll']=10;//巨魔
-    // res.data.userData.bp['doorLevUp']=1;//房间升级卡
-    // res.data.userData.bp['repair']=10;//维修
-    // res.data.userData.bp['energyhood']=10;//能量罩
-    // res.data.userData.bp['guillotine']=10;//断头台
-    // res.data.userData.bp['smoney']=10;//ATM
-    // res.data.userData.bp['spell']=10;//修够
-    // res.data.userData.bp['particlea']=10;//粒子加速器
-    // res.data.userData.bp['solenoid']=10;//电磁圈
-    // res.data.userData.bp['splitter']=10;//分裂器
-    // res.data.userData.bp['barb']=10;//倒刺
-    // res.data.userData.bp['entrapment']=10;//诱捕
-    // res.data.userData.bp['dice']=10; //筛子
+    res.data.userData.bp.longrange=10;//瞭望台
+    res.data.userData.bp.ice=10;//冰箱
+    res.data.userData.bp.meow=10;//喵喵魔盒
+    res.data.userData.bp.troll=10;//巨魔
+    res.data.userData.bp.doorLevUp=1;//房间升级卡
+    res.data.userData.bp.repair=10;//维修
+    res.data.userData.bp.energyhood=10;//能量罩
+    res.data.userData.bp.guillotine=10;//断头台
+    res.data.userData.bp.smoney=10;//ATM
+    res.data.userData.bp.spell=10;//修够
+    res.data.userData.bp.particlea=10;//粒子加速器
+    res.data.userData.bp.solenoid=10;//电磁圈
+    res.data.userData.bp.splitter=10;//分裂器
+    res.data.userData.bp.barb=10;//倒刺
+    res.data.userData.bp.entrapment=10;//诱捕
+    res.data.userData.bp.dice=10; //筛子
 
     $done({body: JSON.stringify(res)});
     console.log("重写躺平结束")
